@@ -1,4 +1,3 @@
-const { inflateSync } = require("node:zlib")
 
 const items = [
     {
@@ -250,5 +249,6 @@ const getById = () => {
 }
 
 module.exports ={
-    listgetById
+    list,
+    getById
 }
