@@ -236,7 +236,7 @@ const list = () => {
     return items
 }
 
-const getById = () => {
+const getById = (id) => {
     return items.find( (item) => {
         if (item.id==id) {
             return true
