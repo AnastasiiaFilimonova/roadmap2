@@ -20,7 +20,7 @@ app.get('/users', (req, res) => {
 
 app.get('/users/:id', (req, res) => {
     res.json({
-        items: User.getById(req.params.id)
+        item: User.getById(req.params.id)
     });
   });
 
@@ -33,7 +33,7 @@ app.get('/posts', (req, res) => {
 
 app.get('/posts/:id', (req, res) => {
     res.json({
-        items: Post.getById(req.params.id)
+        item: Post.getById(req.params.id)
     });
   });
 
@@ -46,7 +46,7 @@ app.get('/comments', (req, res) => {
 
 app.get('/comments/:id', (req, res) => {
     res.json({
-        items: Comment.getById(req.params.id)
+        item: Comment.getById(req.params.id)
     });
   });
 
