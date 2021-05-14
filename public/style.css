@@ -7,13 +7,13 @@
     margin: 0 auto;
 }
 
-.users {
+.users, .items{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.user {
+.user, .item {
     width: 24%;
     padding: 12px;
     border-radius: 12px;
