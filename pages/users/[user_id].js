@@ -14,32 +14,34 @@ const UserPage = () => {
             .then(data => {
                 setUser(data.item)
             })
-        fetch(`http://localhost:3001/posts?userId=${user_id}`)   
-        .then(res => res.json())
-        .then(data => {
-            setPosts(data.items)
-        })
+        fetch(`http://localhost:3001/posts?userId=${user_id}`)
+            .then(res => res.json())
+            .then(data => {
+                setPosts(data.items)
+            })
     }, [user_id])
     console.log(user_id, user)
     return (
         <div className="container">
-        {!!user && (
-            <div className="user">
-               <h2>{user.name}</h2>
-               <p>{user.email}</p>
+            {!!user && (
+                <div className="user">
+                    <h2>{user.name}</h2>
+                    <p>{user.email}</p>
+                </div>
+            )}
+            <div className='row'>
+                {posts.map((post) => {
+                    return (
+                        <div className="col-md-3" key={post.id}>
+                            <div className='item'>
+                                <h2>{post.title}</h2>
+                                <p>{post.body}</p>
+                                <Link href={`/posts/${post.id}`}><a>read</a></Link>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
-        )}
-        <div className='items'>
-            {posts.map((post)=>{
-                return (
-                    <div className='item' key={post.id}>
-                         <h2>{post.title}</h2>
-                        <p>{post.body}</p>
-                        <Link href={`/posts/${post.id}`}><a>read</a></Link>
-                    </div>
-                )
-            })}
-        </div>
         </div>
     )
 }

@@ -1,0 +1,15 @@
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import './blog.scss';
+
+.users, .items{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.user, .item {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid grey;
+    margin-bottom: 12px;
+}

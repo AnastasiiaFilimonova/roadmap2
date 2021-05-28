@@ -31,13 +31,15 @@ const PostPage = () => {
                 </div>
             )
         }
-        <div className='items'>
+        <div className='row'>
             {
                 comments.map((comment) => {
                     return (
-                        <div className='item' key={comment.id}>
-                            <h3>{comment.name}</h3>
-                            <p>{comment.body}</p>
+                        <div className='col-md-3' key={comment.id}>
+                            <div className='item'>
+                                <h3>{comment.name}</h3>
+                                <p>{comment.body}</p>
+                            </div>
                         </div>
                     )
                 })
