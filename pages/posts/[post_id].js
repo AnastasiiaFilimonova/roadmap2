@@ -1,5 +1,6 @@
 import { useRouter } from "next/router"
 import { useEffect, useState } from 'react'
+import MainLayout from "../../components/layout/Main"
 
 const PostPage = () => {
     const router = useRouter()
@@ -22,7 +23,8 @@ const PostPage = () => {
     }, [post_id]
     )
     // const { id } = router.query
-    return (<div className='container'>
+    return (
+    <MainLayout>
         {
             !!post && (
                 <div className='item'>
@@ -46,7 +48,8 @@ const PostPage = () => {
             }
         </div>
 
-    </div>)
+    </MainLayout>
+    )
 }
 
 export default PostPage

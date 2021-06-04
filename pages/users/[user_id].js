@@ -1,6 +1,8 @@
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import MainLayout from "../../components/layout/Main"
+import PostCard from "../../components/card/Post"
 
 const UserPage = () => {
     const router = useRouter()
@@ -22,7 +24,7 @@ const UserPage = () => {
     }, [user_id])
     console.log(user_id, user)
     return (
-        <div className="container">
+        <MainLayout>
             {!!user && (
                 <div className="user">
                     <h2>{user.name}</h2>
@@ -32,17 +34,13 @@ const UserPage = () => {
             <div className='row'>
                 {posts.map((post) => {
                     return (
-                        <div className="col-md-3" key={post.id}>
-                            <div className='item'>
-                                <h2>{post.title}</h2>
-                                <p>{post.body}</p>
-                                <Link href={`/posts/${post.id}`}><a>read</a></Link>
-                            </div>
+                        <div className="col-md-6" key={post.id}>
+                            <PostCard url={`/posts/${post.id}`} item={post}/>
                         </div>
                     )
                 })}
             </div>
-        </div>
+       </MainLayout>
     )
 }
 
