@@ -1,5 +1,6 @@
 import { useRouter } from "next/router"
 import { useEffect, useState } from 'react'
+import ToastComment from "../../components/comment/Toast"
 import MainLayout from "../../components/layout/Main"
 
 const PostPage = () => {
@@ -25,6 +26,8 @@ const PostPage = () => {
     // const { id } = router.query
     return (
     <MainLayout>
+        <div className="row">
+            <div className="col-md-8 offset-md-2">
         {
             !!post && (
                 <div className='item'>
@@ -33,21 +36,19 @@ const PostPage = () => {
                 </div>
             )
         }
-        <div className='row'>
+        <div>
             {
                 comments.map((comment) => {
                     return (
-                        <div className='col-md-3' key={comment.id}>
-                            <div className='item'>
-                                <h3>{comment.name}</h3>
-                                <p>{comment.body}</p>
-                            </div>
+                        <div className='mb-3' key={comment.id}>
+                            <ToastComment item={comment}/>
                         </div>
                     )
                 })
             }
         </div>
-
+        </div>
+        </div>
     </MainLayout>
     )
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import MainLayout from "../components/layout/Main"
+import Avatar from "../components/user/Avatar"
 
 const indexPage = () => {
     const [users, setUsers] = useState([])
@@ -19,11 +20,8 @@ const indexPage = () => {
                     users.map(user => {
                         return (
                             <div className='col-md-3' key={user.id}>
-                                <div className="user">
-                                    <h3>{user.name}</h3>
-                                    <p>{user.email}</p>
-                                    <Link href={`/users/${user.id}`}><a>follow</a></Link>
-                                </div>
+                                <Avatar item={user} url={`/users/${user.id}`}/>
+                                
                             </div>
                         )
                     })
