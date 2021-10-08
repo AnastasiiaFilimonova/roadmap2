@@ -1,5 +1,5 @@
-const LineMovie = ({movie}) => {
-    const {title, poster}=movie
+const LineMovie = ({ movie }) => {
+    const { title, poster, imdb, runtime, plot, genres } = movie
     return (
         <article className="movie-line-entity">
             <div className="entity-poster" data-role="hover-wrap">
@@ -31,17 +31,18 @@ const LineMovie = ({movie}) => {
             <div className="entity-content">
                 <h4 className="entity-title">
                     <a className="content-link" href="movie-info-sidebar-right.html">
-{title}
+                        {title}
                     </a>
                 </h4>
                 <div className="entity-category">
-                    <a className="content-link" href="movies-blocks.html">
-                        comedy
-                    </a>
-                    ,
-                    <a className="content-link" href="movies-blocks.html">
-                        detective
-                    </a>
+                    {genres.map((genre) => {
+                        return (
+                            <a className="content-link" href="movies-blocks.html" key={genre}>
+                                {genre} {" "}
+                            </a>
+                        )
+                    })}
+
                 </div>
                 <div className="entity-info">
                     <div className="info-lines">
@@ -49,30 +50,20 @@ const LineMovie = ({movie}) => {
                             <span className="text-theme info-icon">
                                 <i className="fas fa-star" />
                             </span>
-                            <span className="info-text">8,7</span>
+                            <span className="info-text">{imdb.rating}</span>
                             <span className="info-rest">/10</span>
                         </div>
                         <div className="info info-short">
                             <span className="text-theme info-icon">
                                 <i className="fas fa-clock" />
                             </span>
-                            <span className="info-text">130</span>
+                            <span className="info-text">{runtime}</span>
                             <span className="info-rest">&nbsp;min</span>
                         </div>
                     </div>
                 </div>
                 <p className="text-short entity-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    consectetur ultrices justo a pellentesque. Praesent venenatis dolor
-                    nec tempus lacinia. Donec ac condimentum dolor. Nullam sit amet nisl
-                    hendrerit, pharetra nulla convallis, malesuada diam. Donec ornare
-                    nisl eu lectus rhoncus, at malesuada metus rutrum. Aliquam a nisl
-                    vulputate, sodales ipsum aliquam, tempus purus. Suspendisse
-                    convallis, lectus nec vehicula sollicitudin, lorem sapien rhoncus
-                    dolor, vel lacinia urna velit ullamcorper nisi. Phasellus
-                    pellentesque, magna nec gravida feugiat, est magna suscipit ligula,
-                    vel porttitor nunc enim at nibh. Sed varius sit amet leo vitae
-                    consequat.
+                    {plot}
                 </p>
             </div>
             <div className="entity-extra">
